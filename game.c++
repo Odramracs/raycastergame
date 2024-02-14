@@ -8,6 +8,8 @@
 #include <iomanip>
 #include <sstream>
 
+using namespace std;
+
 uint32_t pack_color(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a=255) {
     return (a<<24) + (b<<16) + (g<<8) + r;
 }
@@ -17,9 +19,9 @@ void unpack_color(const uint32_t &color, uint8_t &r, uint8_t &g, uint8_t &b, uin
     b = (color >> 16) & 255;
     a = (color >> 24) & 255;
 }
-void drop_ppm_image(const std::string filename, const std::vector<uint32_t> &image, const size_t w, const size_t h) {
+void drop_ppm_image(const string filename, const vector<uint32_t> &image, const size_t w, const size_t h) {
     assert(image.size() == w*h);
-    std::ofstream ofs(filename, std::ios::binary);
+    ofstream ofs(filename, ios::binary);
     ofs << "P6\n" << w << " " << h << "\n255\n";
     for (size_t i = 0; i < h*w; ++i) {
         uint8_t r, g, b, a;
@@ -28,7 +30,7 @@ void drop_ppm_image(const std::string filename, const std::vector<uint32_t> &ima
     }
     ofs.close();
 }
-void draw_rectangle(std::vector<uint32_t> &img, const size_t img_w, const size_t img_h, const size_t x, const size_t y, const size_t w, const size_t h, const uint32_t color) {
+void draw_rectangle(vector<uint32_t> &img, const size_t img_w, const size_t img_h, const size_t x, const size_t y, const size_t w, const size_t h, const uint32_t color) {
     assert(img.size()==img_w*img_h);
     for (size_t i=0; i<w; i++) {
         for (size_t j=0; j<h; j++) {
@@ -43,7 +45,7 @@ void draw_rectangle(std::vector<uint32_t> &img, const size_t img_w, const size_t
 int main() {
     const size_t win_w = 1024; // image width
     const size_t win_h = 512; // image height
-    std::vector<uint32_t> framebuffer(win_w*win_h,pack_color(255,255,255)); // the image itself, initialized to white
+    vector<uint32_t> framebuffer(win_w*win_h,pack_color(255,255,255)); // the image itself, initialized to white
 
     const size_t map_w = 16; // map width
     const size_t map_h = 16; // map height
