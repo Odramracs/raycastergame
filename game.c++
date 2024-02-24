@@ -107,18 +107,7 @@ int main() {
         drop_ppm_image(ss.str(), framebuffer, win_w, win_h);
     }
     return 0;
-<<<<<<< HEAD
+
 }
 //laptop into 
-=======
-<<<<<<< HEAD
-    
-}
 
-
-
-
-=======
-}
->>>>>>> 9a8f0d456152db6f6771795faf125aa25e0ca282
->>>>>>> b16b4bd0a17c8441ad33a3e6267cf6aa3ec9ae77
