@@ -1,13 +1,6 @@
 #pragma once
 
 /*
-    Just some little code I cooked up so that Caleb can render his pixel
-    graphics without an outside API, only needing windows.h and other standard library stuff.
-    It's not crazy. You init the window and then create a bitmap of whatever dimension the game is,
-    from that you can edit the pixel array that it gives back and use the macro to encode your colors.
-    There is definitely work that may be done, but this the first API style thing I have ever coded
-    and it was pretty cool to cook up. Now I have to do my real work. Check out the example. 
-
     to compile, just go against gdi32.dll like this:
     gcc example.c -o main -lgdi32
 */
